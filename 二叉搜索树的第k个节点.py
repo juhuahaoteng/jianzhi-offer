@@ -21,13 +21,17 @@ class Solution:
         res = []
 
         def traverse(node):
+            # 当列表长度大于k或者不存在node节点
             if len(res) >= k or not node:
+                # 返回none
                 return
+            # 中序遍历
             traverse(node.left)
             res.append(node)
             traverse(node.right)
-
+        # 遍历二叉树
         traverse(pRoot)
+        # 当遍历二叉搜索树后形成的数组的长度小于k时
         if len(res) < k:
             return
         return res[k - 1]
