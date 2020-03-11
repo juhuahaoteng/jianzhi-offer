@@ -16,16 +16,22 @@ class Solution:
         # 特判
         if root is None:
             return []
-
+        # 建立一个队列来保存每一层的节点
         queue = []
+        # 建立一个列表将输出结果至result
         result = []
 
+        # 先将根节点放至队列中
         queue.append(root)
         while len(queue) > 0:
+            # 弹出当前队列中的节点
             currentRoot = queue.pop(0)
+            # 保存至result结果中
             result.append(currentRoot.val)
+            # 判断当前节点是否存在左孩子
             if currentRoot.left:
                 queue.append(currentRoot.left)
+            # 判断当前节点是否存在右孩子
             if currentRoot.right:
                 queue.append(currentRoot.right)
 
