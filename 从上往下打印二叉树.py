@@ -13,9 +13,10 @@ class TreeNode:
 class Solution:
     """当开始遍历一层的节点时，当前队列中的节点数就是当前层的节点数，只要控制遍历的节点数，就可以保证只遍历当前层"""
     def PrintFromTopToBottom(self, root):
-        # write code here
+        # 特判
         if root is None:
             return []
+
         queue = []
         result = []
 
