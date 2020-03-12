@@ -44,20 +44,34 @@ class Solution:
 class Solution2:
     """迭代 快慢指针,用快指针跳过那些有重复数组,慢指针负责和快指针拼接"""
     def deleteDuplicates(self, pHead):
+        # 特判
         if pHead is None or pHead.next is None:
             return pHead
+        # 哑节点
         dummy = ListNode(-1)
+        # 哑节点指向头节点
         dummy.next = pHead
+        # 慢指针
         slow = dummy
+        # 快指针
         fast = dummy.next
+        # 循环快指针
         while fast:
+            # 当快指针的下个节点存在且快指针指向的当前节点与下个节点的值相同时
             if fast.next and fast.next.val == fast.val:
+                # 用tmp暂时保存这个值
                 tmp = fast.val
+                # 循环fast指针时若fast指针在继续移动时，节点值仍然相同
                 while fast and tmp == fast.val:
+                    # fast指针继续向前移动
                     fast = fast.next
+            # 否则
             else:
+                # 慢指针向前移动
                 slow.next = fast
+                # 慢指针移动到快指针指向的节点
                 slow = fast
+                # 快指针向前移动
                 fast = fast.next
         slow.next = fast
         return dummy.next
