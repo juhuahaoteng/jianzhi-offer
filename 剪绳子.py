@@ -48,10 +48,10 @@ class Solution2:
             return 2
 
         max_list = [0, 1, 2, 3]
-        for j in range(4, number+1):
+        for i in range(4, number+1):
             max = 0
-            for i in range(1, j):
-                temp = max_list[i] * max_list[j]
+            for j in range(1, i):
+                temp = max_list[i] * max_list[i - j]
                 if temp > max:
                     max = temp
             max_list.append(max)
